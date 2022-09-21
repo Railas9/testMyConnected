@@ -8,6 +8,8 @@ const logger = require('./utils/logger')
 const app = express()
 const port = process.env.HTTP_PORT
 
+const routing = require('./routers')
+
 // Middleware
 app.use(morgan('combined'))
 app.use(cors())
@@ -15,6 +17,7 @@ app.use(bodyParser.json())
 
 // insert your router here
 
+app.use(routing)
 
 //other
 
