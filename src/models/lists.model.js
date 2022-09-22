@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-const Card = require('./cards.model')
-const schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const schema = mongoose.Schema
 
 const listSchema = schema({
   name: {
