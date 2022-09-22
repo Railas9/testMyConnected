@@ -23,9 +23,13 @@ exports.createCardInList = async (req,res,next) =>{
     res.end()
 }
 
-exports.getCardById = async (req,res,next) =>{
-    const card = await Card.findById(req.params.id)
-    res.send(card)
+exports.getCardById = (req,res,next) =>{
+    Card.findById(req.params.id).exec().then( card => {
+        res.send(card)
+    }).catch(e =>{
+        console.log('erreur')
+    })
+
 }
 
 exports.updateCard = async (req,res,next) =>{

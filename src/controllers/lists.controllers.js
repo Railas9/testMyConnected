@@ -26,6 +26,20 @@ exports.updateList = async (req,res,next) =>{
     res.send(list)
 }
 
+exports.transferCardtoList = async (req,res,next)=>{
+    const cardId = req.params.cardId
+    const listId = req.params.listId
+    const found = await List.findOne( { 'cards': cardId }).exec()
+    const newArray = found.cards.filter( el => el != cardId)
+    found.cards = newArray
+    console.log(found)
+    found.save()
+    const newList = await List.findOne( { '_id': listId }).exec()
+    newList.cards.push(cardId)
+    newList.save()
+    res.end()
+}
+
 exports.deleteList = async (req,res,next) =>{
     await List.findByIdAndDelete(req.params.id).exec()
     res.send()
