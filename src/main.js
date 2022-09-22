@@ -9,7 +9,8 @@ const logger = require('./utils/logger')
 const app = express()
 const port = process.env.HTTP_PORT
 
-const routing = require('./routers')
+const cards = require('./routers/cards')
+const lists = require('./routers/lists')
 
 
 
@@ -21,8 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // insert your router here
+app.use('/lists',lists)
+app.use(cards)
 
-app.use(routing)
 
 //other
 

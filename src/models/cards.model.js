@@ -15,7 +15,7 @@ const cardSchema = schema({
     type: String,
   },
   checklist: {
-    type: String,
+    type: Boolean,
   },
   deadline: {
     type : String

@@ -1,5 +1,5 @@
 const Card = require('../models/cards.model')
-
+const List = require('../models/lists.model')
 
 exports.getAllCards = async (req,res,next) =>{
     const cards = await Card.find({}).exec()
@@ -10,6 +10,16 @@ exports.getAllCards = async (req,res,next) =>{
 exports.createCard = async (req,res,next) =>{
     const newCards = new Card(req.body)
     await newCards.save()
+    res.end()
+}
+
+
+exports.createCardInList = async (req,res,next) =>{
+    const newCard = new Card(req.body)
+    const savedCard = await newCard.save()
+    const list = await List.findById(req.params.id).exec()
+    list.cards.push(savedCard._id)
+    list.save()
     res.end()
 }
 
