@@ -8,9 +8,8 @@ const userSchema = schema({
   email: {
     type: String,
   },
-  myTabs: {
-    type: [{type: schema.ObjectId, ref:'tabs'}],
-  }
+  myTabs: [{type: schema.ObjectId, ref:'tabs'}] ,
+  
 },
 {
     timestamps:true

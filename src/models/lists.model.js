@@ -5,9 +5,9 @@ const listSchema = schema({
   name: {
     type: String,
   },
-  cards: {
-    type: [{type: schema.ObjectId, ref:'cards'}],
-  }
+  cards: 
+    [{type: schema.ObjectId, ref:'cards'}]
+  
 },
 {
     timestamps:true

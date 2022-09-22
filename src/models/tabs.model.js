@@ -5,9 +5,7 @@ const tabsSchema = schema({
   name: {
     type: String,
   },
-  lists: {
-    type: [{type: schema.ObjectId, ref:'lists'}],
-  },
+  lists: [{type: schema.ObjectId, ref:'lists'}],
   labels: {
       type: [String], default : ["to do","in process","done"]
   }
