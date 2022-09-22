@@ -6,7 +6,7 @@ const cardSchema = schema({
     type: String,
   },
   members: {
-    type: [String],
+    type: [{type: schema.ObjectId, ref:'users'}],
   },
   description: {
     type: String,

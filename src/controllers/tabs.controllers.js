@@ -18,6 +18,13 @@ exports.getTabById = async (req,res,next) =>{
     res.send(tabs)
 }
 
+exports.addMasterToTab = async (req,res,next) =>{
+    const tab = await Tabs.findById(req.params.id)
+    tab.master = req.params.idMaster
+    tab.save()
+    res.send(tab)
+}
+
 exports.updateTab = async (req,res,next) =>{
     const tabsId = req.params.id
     const idList = req.params.idList
