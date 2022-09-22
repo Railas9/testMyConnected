@@ -7,7 +7,7 @@ const listSchema = schema({
     type: String,
   },
   cards: {
-    type: [{type: schema.ObjectId, ref:'lists'}],
+    type: [{type: schema.ObjectId, ref:'cards'}],
   }
 },
 {
